@@ -1,0 +1,38 @@
+@use './colors' as colors;
+
+@mixin tablet {
+	@media (min-width: 48rem) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: 64rem) {
+		@content;
+	}
+}
+
+@mixin large-desktop {
+	@media (min-width: 75rem) {
+		@content;
+	}
+}
+
+@mixin focus-visible {
+	&:focus-visible {
+		outline: 0.1875rem solid colors.$color-primary-hover;
+		outline-offset: 0.25rem;
+	}
+}
+
+@mixin section-spacing {
+	padding-block: 3.75rem;
+
+	@include tablet {
+		padding-block: 5rem;
+	}
+
+	@include desktop {
+		padding-block: 6rem;
+	}
+}
