@@ -681,9 +681,24 @@ svg {
 	}
 }
 
-.social-section {
+// ////////////////STOPKA//////////////////////
+
+.site-footer {
 	padding-block: 2rem;
 
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+	&__top {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+	}
 	.socials {
 		display: flex;
 		justify-content: center;
@@ -735,60 +750,13 @@ svg {
 			}
 		}
 	}
-}
-
-// ////////////////STOPKA//////////////////////
-
-// .site-footer {
-// 	&__contact {
-// 		display: flex;
-// 		flex-direction: column;
-// 		gap: 0.5rem;
-// 		align-items: center;
-
-// 		a,
-// 		span {
-// 			color: colors.$color-text-muted;
-// 			font-size: 0.9rem;
-// 		}
-
-// 		a:hover {
-// 			color: colors.$color-text;
-// 		}
-// 	}
-
-// 	&__bottom {
-// 		display: flex;
-// 		flex-wrap: wrap;
-// 		gap: 1rem;
-// 		justify-content: center;
-// 		align-items: center;
-
-// 		font-size: 0.8rem;
-// 		color: colors.$color-text-muted;
-// 	}
-// }
-
-.site-footer {
-	padding-block: 2rem;
-
-	&__inner {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-	&__top {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 
 	&__contact {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
 		align-items: flex-start;
+		text-align: center;
+		gap: 0.5rem;
 
 		a,
 		span {
@@ -803,15 +771,14 @@ svg {
 	}
 
 	&__bottom {
-		padding-top: 1.5rem;
-		border-top: 1px solid colors.$color-border;
-
+		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 1rem;
-
+		padding-top: 1.5rem;
+		// border-top: 1px solid colors.$color-border;
 		font-size: 0.8rem;
 		color: colors.$color-text-muted;
 
@@ -920,14 +887,6 @@ svg {
 			padding: 2rem 3rem;
 		}
 	}
-
-	// .site-footer {
-	// 	&__inner {
-	// 		flex-direction: row;
-	// 		justify-content: space-between;
-	// 		text-align: left;
-	// 	}
-	// }
 }
 
 /////////////DESKTOP/////////////////////
@@ -990,6 +949,17 @@ svg {
 			color: colors.$color-text-soft;
 			font-size: 1.5rem;
 			font-weight: 300;
+		}
+	}
+	.site-footer {
+		&__top {
+			flex-direction: row;
+			gap: 5rem;
+		}
+
+		&__contact {
+			align-items: flex-start;
+			text-align: left;
 		}
 	}
 }

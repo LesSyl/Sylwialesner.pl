@@ -1,0 +1,34 @@
+@use './fonts';
+@use './colors' as colors;
+
+.privacy {
+	padding-block: 8rem 4rem;
+
+	h1 {
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	h2 {
+		margin: 3rem 0 1rem;
+		font-size: 1.4rem;
+	}
+
+	p,
+	li {
+		color: colors.$color-text-muted;
+		line-height: 1.8;
+	}
+
+	ul {
+		margin: 1rem 0 1.5rem 1.5rem;
+	}
+
+	a {
+		color: colors.$color-text;
+
+		&:hover {
+			color: colors.$color-primary-hover;
+		}
+	}
+}
