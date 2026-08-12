@@ -20,19 +20,19 @@
 
 @mixin focus-visible {
 	&:focus-visible {
-		outline: 0.1875rem solid colors.$color-primary-hover;
-		outline-offset: 0.25rem;
+		outline: 0.18em solid colors.$color-primary-hover;
+		outline-offset: 0.25em;
 	}
 }
 
 @mixin section-spacing {
-	padding-block: 3.75rem;
+	padding-block: 3.7em;
 
 	@include tablet {
-		padding-block: 5rem;
+		padding-block: 5em;
 	}
 
 	@include desktop {
-		padding-block: 6rem;
+		padding-block: 6em;
 	}
 }
