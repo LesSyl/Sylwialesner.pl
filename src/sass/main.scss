@@ -11,12 +11,12 @@
 
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: 5rem;
+	scroll-padding-top: 5em;
 }
 
 body {
 	margin: 0;
-	min-width: 20em;
+	min-width: 17.5em;
 	background-color: colors.$color-background;
 	color: colors.$color-text;
 	font-family: 'Inter', Arial, sans-serif;
@@ -63,7 +63,6 @@ h2,
 h3 {
 	font-weight: 500;
 	line-height: 1.15;
-	text-wrap: balance;
 }
 
 p {
@@ -74,23 +73,24 @@ svg {
 	display: block;
 }
 
-////////////// KLASY POMOCNICZE////////////
+// Utilities
 
 .container {
-	width: min(100% - 2rem, 87.5rem);
+	width: calc(100% - 2em);
+	max-width: 75em;
 	margin-inline: auto;
 
 	@include mixins.tablet {
-		width: min(100% - 4rem, 87.5rem);
+		width: calc(100% - 4em);
 	}
 }
 
 .sr-only {
 	position: absolute;
-	width: 0.0625rem;
-	height: 0.0625rem;
+	width: 0.0625em;
+	height: 0.0625em;
 	padding: 0;
-	margin: -0.0625rem;
+	margin: -0.0625em;
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
@@ -99,10 +99,10 @@ svg {
 
 .skip-link {
 	position: fixed;
-	top: 1rem;
-	left: 1rem;
+	top: 1em;
+	left: 1em;
 	z-index: 1000;
-	padding: 0.75rem 1rem;
+	padding: 0.75em 1em;
 	background-color: colors.$color-text;
 	color: colors.$color-white;
 	text-decoration: none;
@@ -119,7 +119,7 @@ svg {
 }
 
 .section-heading {
-	margin-bottom: 2.5rem;
+	margin-bottom: 2.5em;
 
 	&--center {
 		text-align: center;
@@ -135,7 +135,7 @@ svg {
 	}
 }
 
-/////////// PRZYCISKI I LINKI/////////////
+// Buttons and links
 
 .button {
 	@include mixins.focus-visible;
@@ -143,13 +143,13 @@ svg {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 3.25rem;
-	padding: 0.85rem 1.75rem;
+	min-height: 3.25em;
+	padding: 0.8em 1.75em;
 	border: 0;
 	border-radius: 1.8em;
 	background-color: transparent;
 	color: colors.$color-text;
-	font-size: 0.875rem;
+	font-size: 0.8rem;
 	font-weight: 500;
 	line-height: 1.2;
 	text-decoration: none;
@@ -157,7 +157,7 @@ svg {
 	transition: background-color 200ms ease, transform 200ms ease;
 
 	&:hover {
-		transform: translateY(-0.125rem);
+		transform: translateY(-0.125em);
 	}
 
 	&--primary {
@@ -171,25 +171,23 @@ svg {
 
 .text-link {
 	@include mixins.focus-visible;
-
 	display: inline-flex;
 	align-items: center;
-	gap: 0.75rem;
+	gap: 0.7em;
 	width: fit-content;
-	font-size: 0.875rem;
-	font-weight: 500;
+	font-size: 0.8rem;
 	text-decoration: none;
-
 	svg {
+		width: 1.5em;
 		transition: transform 200ms ease;
 	}
 
 	&:hover svg {
-		transform: translateX(0.3rem);
+		transform: translateX(0.3em);
 	}
 }
 
-// ///////////////NAGŁÓWEK//////////////
+// Header and navigation
 
 .site-header {
 	position: fixed;
@@ -197,21 +195,21 @@ svg {
 	right: 0;
 	left: 0;
 	background-color: rgba(colors.$color-background, 0.96);
-	border-bottom: 0.0625rem solid transparent;
+	border-bottom: 0.0625em solid transparent;
 	transition: border-color 200ms ease, box-shadow 200ms ease;
-	backdrop-filter: blur(0.75rem);
+	backdrop-filter: blur(0.75em);
 	z-index: 100;
 
 	&.is-scrolled {
 		border-color: colors.$color-border;
-		box-shadow: 0 0.5rem 1.5rem rgba(30, 27, 23, 0.04);
+		box-shadow: 0 0.5em 1.5em rgba(30, 27, 23, 0.04);
 	}
 
 	&__inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		min-height: 4.75rem;
+		min-height: 4.75em;
 	}
 }
 
@@ -220,7 +218,7 @@ svg {
 
 	display: inline-flex;
 	align-items: center;
-	gap: 0.75rem;
+	gap: 0.75em;
 	text-decoration: none;
 
 	&__initials {
@@ -231,8 +229,8 @@ svg {
 	}
 
 	&__divider {
-		width: 0.0625rem;
-		height: 1.5rem;
+		width: 0.0625em;
+		height: 1.5em;
 		background-color: colors.$color-text;
 		transform: rotate(14deg);
 	}
@@ -250,10 +248,10 @@ svg {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 0.3125rem;
-	width: 3rem;
-	height: 3rem;
-	padding: 0.75rem;
+	gap: 0.3125em;
+	width: 3em;
+	height: 3em;
+	padding: 0.75em;
 	background-color: transparent;
 	border: 0;
 	cursor: pointer;
@@ -262,7 +260,7 @@ svg {
 	&__line {
 		display: block;
 		width: 100%;
-		height: 0.0625rem;
+		height: 0.0625em;
 		background-color: colors.$color-text;
 		transition: transform 200ms ease, opacity 200ms ease;
 	}
@@ -270,7 +268,7 @@ svg {
 	&[aria-expanded='true'] {
 		.menu-toggle__line {
 			&:nth-of-type(1) {
-				transform: translateY(0.375rem) rotate(45deg);
+				transform: translateY(0.375em) rotate(45deg);
 			}
 
 			&:nth-of-type(2) {
@@ -278,7 +276,7 @@ svg {
 			}
 
 			&:nth-of-type(3) {
-				transform: translateY(-0.375rem) rotate(-45deg);
+				transform: translateY(-0.375em) rotate(-45deg);
 			}
 		}
 	}
@@ -291,24 +289,19 @@ svg {
 	bottom: 0;
 	left: 0;
 	z-index: 105;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	width: 100%;
 	min-height: 100vh;
 	min-height: 100dvh;
-	padding: 6rem 2rem 2rem;
-
+	padding: 6em 2em 2em;
 	background-color: rgba(colors.$color-background, 0.92);
-	backdrop-filter: blur(0.75rem);
-	-webkit-backdrop-filter: blur(0.75rem);
-
+	backdrop-filter: blur(0.75em);
+	-webkit-backdrop-filter: blur(0.75em);
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
-
 	transition: visibility 200ms ease, opacity 200ms ease;
 
 	&.is-open {
@@ -321,7 +314,7 @@ svg {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 1.75rem;
+		gap: 1.75em;
 	}
 
 	&__link {
@@ -336,9 +329,9 @@ svg {
 			content: '';
 			position: absolute;
 			right: 0;
-			bottom: -0.25rem;
+			bottom: -0.25em;
 			left: 0;
-			height: 0.0625rem;
+			height: 0.0625em;
 			background-color: colors.$color-text;
 			transform: scaleX(0);
 			transform-origin: right;
@@ -353,85 +346,466 @@ svg {
 	}
 }
 
-// //////////////////HERO//////////////////
+// Hero
 
 .hero {
+	position: relative;
 	display: flex;
 	align-items: center;
 	min-height: 100svh;
-	padding-top: 7rem;
-	padding-bottom: 4rem;
+	padding-top: 7em;
+	padding-bottom: 5em;
 	overflow: hidden;
-
 	&__inner {
 		display: grid;
-		// grid-template-columns: 0.8fr 1.2fr;
-		gap: 4rem;
+		grid-template-columns: minmax(0, 1fr);
 		align-items: center;
+		gap: 4em;
 	}
 
+	// -----------------------------------------
+	// LEWA STRONA
+	// -----------------------------------------
+
 	&__content {
-		max-width: 39rem;
+		position: relative;
+		z-index: 3;
+		max-width: 50em;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	&__eyebrow {
+		margin: 0 0 1.5em;
+		color: colors.$color-text-soft;
+		font-size: 0.7rem;
+		font-weight: 500;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		opacity: 0;
+		animation: hero-fade-up 700ms 100ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 	}
 
 	&__title {
-		margin-bottom: 1.75rem;
-		font-size: clamp(2rem, 10vw, 4.5rem);
+		margin: 0 0 1em;
+		font-size: clamp(2.7rem, 5vw, 5rem);
 		font-weight: 500;
-		letter-spacing: -0.045em;
+		line-height: 0.9;
+		letter-spacing: -0.05em;
+
+		span {
+			display: inline-block;
+			opacity: 0;
+			transform: translateY(2em);
+			animation: hero-title-in 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			&:nth-child(1) {
+				animation-delay: 180ms;
+			}
+			&:nth-child(2) {
+				animation-delay: 260ms;
+			}
+			&:nth-child(3) {
+				animation-delay: 340ms;
+			}
+			&:nth-child(4) {
+				animation-delay: 420ms;
+			}
+			&:nth-child(5) {
+				animation-delay: 500ms;
+			}
+		}
 	}
 
 	&__description {
-		max-width: 33rem;
-		margin-bottom: 2rem;
+		max-width: 33em;
+		margin: 0 auto 2em;
 		color: colors.$color-text-muted;
-		font-size: clamp(1rem, 3vw, 1.2rem);
+		font-size: clamp(1rem, 2vw, 1.15rem);
 		line-height: 1.7;
+		opacity: 0;
+		animation: hero-fade-up 800ms 650ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 	}
 
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
-		gap: 1.25rem;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25em;
+
+		opacity: 0;
+
+		animation: hero-fade-up 800ms 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 	}
 
-	&__image-wrapper {
-		max-width: none;
-		transform: scale(1.15);
-		transform-origin: center left;
-		// width: 100%;
-		// max-width: 60rem;
-		// margin-inline: auto;
-	}
+	// -----------------------------------------
+	// PRAWA STRONA
+	// -----------------------------------------
 
-	&__image {
+	&__visual {
+		position: relative;
 		width: 100%;
-		transform: scale(1.15);
-		filter: drop-shadow(colors.$shadow-image);
+		max-width: 50em;
+		margin-inline: auto;
+		perspective: 1200px;
+		opacity: 0;
+		animation: hero-visual-in 1100ms 350ms cubic-bezier(0.22, 1, 0.36, 1)
+			forwards;
+	}
+
+	// delikatna poświata
+
+	&__glow {
+		position: absolute;
+		top: 10%;
+		right: 5%;
+		width: 65%;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: radial-gradient(
+			circle,
+			rgba(223, 205, 181, 0.32) 0%,
+			rgba(223, 205, 181, 0.12) 35%,
+			transparent 70%
+		);
+		filter: blur(2em);
+		pointer-events: none;
+	}
+
+	.business-mockup {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		overflow: hidden;
+		background: #ffffff;
+		border: 1px solid rgba(colors.$color-text, 0.1);
+		border-radius: 1.1em;
+		box-shadow: 0 2em 5em rgba(36, 31, 25, 0.12),
+			0 0.5em 1.5em rgba(36, 31, 25, 0.06);
+		transform: rotateY(-4deg) rotateX(2deg);
+		animation: business-mockup-float 6s ease-in-out infinite;
+		transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+			box-shadow 600ms ease;
+	}
+
+	/* =========================================
+   PASEK PRZEGLĄDARKI
+========================================= */
+
+	.business-mockup {
+		&__browser-bar {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 2.5em;
+			padding-inline: 1em;
+			background: #f1eee9;
+			border-bottom: 1px solid rgba(colors.$color-text, 0.07);
+		}
+
+		&__dots {
+			display: flex;
+			gap: 0.4em;
+
+			span {
+				width: 0.45em;
+				height: 0.45em;
+				border-radius: 50%;
+				background: colors.$color-text-soft;
+				opacity: 0.45;
+			}
+		}
+
+		&__url {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			min-width: 35%;
+			padding: 0.28em 1em;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.7);
+			color: colors.$color-text-soft;
+			font-size: 0.55rem;
+			text-align: center;
+		}
+
+		&__screen {
+			position: relative;
+			height: 33em;
+			overflow: hidden;
+			background: colors.$color-background;
+		}
+	}
+
+	.business-slide {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(0.15em);
+		transition: opacity 450ms ease, transform 450ms ease, visibility 450ms ease;
+
+		&.is-active {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.mockup-site-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.5em 5%;
+		background: rgba(255, 255, 255, 0.35);
+	}
+
+	.mockup-logo {
+		color: colors.$color-text;
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+	}
+
+	.mockup-nav {
+		display: flex;
+		gap: 1.5em;
+		color: colors.$color-text-soft;
+		font-size: 0.48rem;
+	}
+
+	.mockup-menu {
+		display: none;
+	}
+
+	.mockup-hero {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 0.8fr;
+		align-items: center;
+		flex: 1;
+		min-height: 0;
+		padding: 2em 5%;
+		overflow: hidden;
+
+		&__content {
+			position: relative;
+			z-index: 2;
+			max-width: 20em;
+		}
+
+		&__visual {
+			position: relative;
+			min-height: 0;
+			height: 100%;
+		}
+
+		h2 {
+			margin: 0 0 1em;
+			color: colors.$color-text;
+			font-family: Georgia, serif;
+			font-size: 2rem;
+			font-weight: 400;
+			line-height: 0.9;
+			letter-spacing: -0.04em;
+			transition: opacity 250ms ease, transform 250ms ease;
+
+			em {
+				color: #c99683;
+				font-style: normal;
+			}
+		}
+
+		p {
+			max-width: 14em;
+			margin: 0 0 1.4em;
+			color: colors.$color-text-muted;
+			font-size: 0.7rem;
+			line-height: 1.55;
+			transition: opacity 250ms ease, transform 250ms ease;
+		}
+	}
+
+	.mockup-eyebrow {
+		display: block;
+		margin-bottom: 1em;
+		color: colors.$color-text-soft;
+		font-size: 0.5rem;
+		letter-spacing: 0.16em;
+	}
+
+	.mockup-cta {
+		padding: 0.6em 1em;
+		border: 0;
+		border-radius: 999px;
+		background: colors.$color-text;
+		color: colors.$color-white;
+		font-family: inherit;
+		font-size: 0.5rem;
+		cursor: pointer;
+	}
+
+	.mockup-main-image {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 12em;
+		aspect-ratio: 0.82;
+		overflow: hidden;
+		border-radius: 0.5em;
+		box-shadow: 0 1.5em 3em rgba(36, 31, 25, 0.15);
+		transform: translate(-50%, -50%) rotate(5deg);
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.mockup-benefits {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		border-top: 1px solid colors.$color-border;
+		background: #ffffff;
+	}
+
+	.mockup-benefit {
+		display: grid;
+		grid-template-rows: auto minmax(2.2em, auto) auto;
+		align-content: start;
+		min-height: 6em;
+		padding: 1.2em;
+		border-right: 1px solid colors.$color-border;
+
+		&:last-child {
+			border-right: 0;
+		}
+
+		&__number {
+			display: block;
+			color: colors.$color-text-soft;
+			font-size: 0.45rem;
+			letter-spacing: 0.1em;
+			line-height: 1;
+		}
+
+		strong {
+			display: block;
+			min-height: calc(2 * 1.25em);
+			margin-top: 1.2em;
+			color: colors.$color-text;
+			font-size: 0.8rem;
+			font-weight: 500;
+			line-height: 1.25;
+		}
+
+		small {
+			display: block;
+			margin-top: 0.35em;
+			color: colors.$color-text-soft;
+			font-size: 0.6rem;
+			line-height: 1.4;
+		}
+	}
+
+	.mockup-selector {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+		margin-top: 1em;
+		margin-left: 0;
+		padding: 0.5em 1em;
+		border: 1px solid rgba(colors.$color-text, 0.08);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.82);
+		// backdrop-filter: blur(1em);
+		box-shadow: 0 1em 2.5em rgba(36, 31, 25, 0.07);
+
+		&__label {
+			color: colors.$color-text-soft;
+			font-size: 0.52rem;
+			white-space: nowrap;
+		}
+
+		&__buttons {
+			display: flex;
+			gap: 0.2em;
+		}
+
+		&__button {
+			@include mixins.focus-visible;
+			padding: 0.45em 0.65em;
+			border: 0;
+			border-radius: 999px;
+			background: transparent;
+			color: colors.$color-text-soft;
+			font-family: inherit;
+			font-size: 0.6rem;
+			cursor: pointer;
+			transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+
+			&:hover {
+				color: colors.$color-text;
+			}
+
+			&.is-active {
+				background: colors.$color-primary;
+				color: colors.$color-text;
+			}
+
+			&:active {
+				transform: scale(0.96);
+			}
+		}
 	}
 }
 
-// ////////////////USŁUGI//////////////////
+// Services
 
 .services {
-	// padding-top: 3rem;
+	&__title {
+		max-width: 32em;
+		margin: 1.25em auto 0;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		line-height: 1.2;
+		text-wrap: balance;
+	}
+
+	&__intro {
+		max-width: 42em;
+		margin: 1em auto 0;
+		color: colors.$color-text-muted;
+		font-size: 0.9rem;
+		line-height: 1.7;
+	}
 
 	&__grid {
 		display: grid;
-		gap: 2.75em;
+		gap: 3em 2.5em;
+		margin-top: 3.5em;
 	}
 }
 
 .service {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
 
 	&__icon {
 		display: grid;
 		place-items: center;
+		flex-shrink: 0;
 		width: 4.5em;
 		height: 4.5em;
-		margin: 0 auto 1.25em;
+		margin-bottom: 1.25em;
 		background-color: colors.$color-background-soft;
 		border-radius: 50%;
 
@@ -444,92 +818,63 @@ svg {
 			stroke-linecap: round;
 			stroke-linejoin: round;
 		}
-
-		&--wordpress {
-			span {
-				font-family: Georgia, serif;
-				font-size: 2.6rem;
-				font-weight: 600;
-				line-height: 1;
-			}
-		}
 	}
 
 	&__title {
-		// margin-bottom: 0.75em;
-		font-size: 1.2rem;
+		margin: 0;
+		font-size: 1.15rem;
+		line-height: 1.3;
+		text-wrap: balance;
 	}
 
 	&__description {
 		max-width: 30em;
-		margin: 0 auto;
+		margin: 0.75em auto 0;
 		color: colors.$color-text-muted;
 		font-size: 0.8rem;
 		line-height: 1.65;
 	}
 }
-// ///////////////////WORDPRESS///////////////////////
 
-.wordpress {
-	// padding-top: 1rem;
+// Conversion panels
 
+.conversion-panel {
 	&__box {
 		display: grid;
-		gap: 2em;
+		gap: 0.5em;
 		align-items: center;
-		padding: 2em;
+		padding: 1.5em;
 		background-color: colors.$color-background-card;
 		border: 0.06em solid rgba(colors.$color-border, 0.6);
 		border-radius: 1em;
 	}
 
-	&__logo {
-		display: grid;
-		place-items: center;
-		width: 2em;
-		height: 2em;
-		margin-inline: auto;
-		border: 0.03em solid colors.$color-text;
-		border-radius: 50%;
-		font-family: Georgia, serif;
-		font-size: 5rem;
-		line-height: 1;
+	&__content {
+		min-width: 0;
 	}
 
 	&__title {
-		margin-bottom: 2em;
-		font-size: clamp(1.5rem, 5vw, 2rem);
+		margin-bottom: 0.8em;
+		font-size: clamp(1.4rem, 5vw, 2rem);
+		line-height: 1.2;
 	}
 
 	&__description {
-		max-width: 42em;
-		margin-bottom: 1.2em;
+		max-width: 48em;
+		margin: 0;
 		color: colors.$color-text-muted;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
+		line-height: 1.7;
 	}
 
-	&__features {
-		display: grid;
-		gap: 0.5rem;
-		color: colors.$color-text-muted;
-		font-size: 0.8rem;
-
-		li {
-			position: relative;
-			padding-left: 1.5rem;
-
-			&::before {
-				content: '✓';
-				position: absolute;
-				top: 0;
-				left: 0;
-				color: colors.$color-text-muted;
-			}
-		}
+	&__button {
+		width: fit-content;
+		justify-self: center;
+		margin-top: 2em;
 	}
 }
 
-// //////////////////////PROJEKTY//////////////////////
+// Projects
 
 .projects {
 	&__grid {
@@ -546,7 +891,7 @@ svg {
 
 .project {
 	overflow: hidden;
-	border: 1px solid colors.$color-primary;
+	border: 0.0625em solid colors.$color-primary;
 	border-radius: 0.5em;
 
 	&__link {
@@ -601,10 +946,9 @@ svg {
 	}
 }
 
-///////////////////PROCES/////////////////////
+// Process
 
 .process {
-
 	&__list {
 		display: grid;
 		gap: 2.5em;
@@ -640,11 +984,9 @@ svg {
 	}
 }
 
-// ////////////////KONTAKT//////////////////
+// Contact
 
 .box {
-	// padding-block: 2rem 1rem;
-
 	&__box {
 		display: flex;
 		flex-direction: column;
@@ -668,7 +1010,7 @@ svg {
 	}
 }
 
-// ////////////////STOPKA//////////////////////
+// Footer
 
 .site-footer {
 	padding-block: 2em;
@@ -696,11 +1038,13 @@ svg {
 		list-style: none;
 
 		&__link {
+			@include mixins.focus-visible;
+
 			display: grid;
 			place-items: center;
 			width: 4em;
 			height: 4em;
-			border: 1px solid colors.$color-border;
+			border: 0.0625em solid colors.$color-border;
 			border-radius: 0.7em;
 			background: colors.$color-background-card;
 
@@ -713,7 +1057,7 @@ svg {
 				background: colors.$color-background-soft;
 				border-color: colors.$color-primary;
 				box-shadow: colors.$shadow-image;
-				transform: translateY(-2px);
+				transform: translateY(-0.125em);
 			}
 
 			svg {
@@ -761,7 +1105,6 @@ svg {
 		flex-wrap: wrap;
 		gap: 1em;
 		padding-top: 1.5em;
-		// border-top: 1px solid colors.$color-border;
 		font-size: 0.8rem;
 		color: colors.$color-text-muted;
 
@@ -776,7 +1119,168 @@ svg {
 	}
 }
 
-// ////////////TABLET////////////////////
+// Mini
+
+// /* =========================================================
+//    TABLET
+//    ========================================================= */
+
+// @include mixins.tablet-mini {
+// 	.services {
+// 		&__grid {
+// 			grid-template-columns: repeat(2, minmax(0, 1fr));
+// 			gap: 4em 3em;
+// 		}
+// 	}
+// }
+
+// /* =========================================================
+//    DESKTOP
+//    ========================================================= */
+
+// @include mixins.desktop {
+// 	.services {
+// 		&__grid {
+// 			grid-template-columns: repeat(3, minmax(0, 1fr));
+// 			gap: 4.5em 3em;
+// 			margin-top: 4em;
+// 		}
+// 	}
+// }
+
+// .sales-department {
+// 	&__box {
+// 		display: grid;
+// 		gap: 2em;
+// 		align-items: center;
+// 		padding: 2em;
+// 		background-color: colors.$color-background-card;
+// 		border: 0.06em solid rgba(colors.$color-border, 0.6);
+// 		border-radius: 1em;
+// 	}
+
+// 	&__logo {
+// 		display: grid;
+// 		place-items: center;
+// 		width: 2em;
+// 		height: 2em;
+// 		margin-inline: auto;
+// 		border: 0.03em solid colors.$color-text;
+// 		border-radius: 50%;
+// 		font-family: Georgia, serif;
+// 		font-size: 5rem;
+// 		line-height: 1;
+// 	}
+
+// 	&__title {
+// 		margin-bottom: 2em;
+// 		font-size: clamp(1.5rem, 5vw, 2rem);
+// 	}
+
+// 	&__description {
+// 		max-width: 42em;
+// 		margin-bottom: 1.2em;
+// 		color: colors.$color-text-muted;
+// 		font-size: 0.8rem;
+// 	}
+
+// 	&__features {
+// 		display: grid;
+// 		gap: 0.5em;
+// 		color: colors.$color-text-muted;
+// 		font-size: 0.8rem;
+
+// 		li {
+// 			position: relative;
+// 			padding-left: 1.5em;
+
+// 			&::before {
+// 				content: '✓';
+// 				position: absolute;
+// 				top: 0;
+// 				left: 0;
+// 				color: colors.$color-text-muted;
+// 			}
+// 		}
+// 	}
+// }
+
+@include mixins.mini {
+	.hero {
+		&__visual {
+			padding-inline: 0;
+		}
+
+		.mockup-main-image {
+			left: 60%;
+			width: 7em;
+			transform: translate(-50%, -50%) rotate(2deg);
+		}
+
+		.mockup-selector {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0.5em;
+			padding: 0.7em;
+			border-radius: 1em;
+
+			&__label {
+				text-align: center;
+			}
+
+			&__buttons {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.3em;
+			}
+
+			&__button {
+				width: 100%;
+				padding: 0.55em 0.4em;
+				text-align: center;
+			}
+		}
+
+		.mockup-hero {
+			h2 {
+				font-size: 1.4rem;
+			}
+		}
+
+		.mockup-benefit {
+			grid-template-rows: auto minmax(2.2em, auto) auto;
+			padding: 2em 0.3em;
+
+			strong {
+				min-height: calc(2 * 1.25em);
+				margin-top: 1em;
+				font-size: 0.7rem;
+			}
+
+			small {
+				font-size: 0.6rem;
+			}
+		}
+	}
+}
+
+@include mixins.tablet-mini {
+	.hero {
+		.mockup-hero {
+			h2 {
+				font-size: 2.15rem;
+			}
+		}
+	}
+	.services {
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 4em 3em;
+		}
+	}
+}
+
+// Tablet
 
 @include mixins.tablet {
 	body.menu-open {
@@ -786,28 +1290,35 @@ svg {
 	.menu-toggle {
 		display: none;
 	}
+	.hero {
+		.mockup-hero {
+			h2 {
+				font-size: 3rem;
+			}
+		}
+		&__actions {
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 2.5em;
+		}
+	}
 
 	.site-nav {
 		position: static;
 		inset: auto;
 		z-index: auto;
-
 		display: block;
-
 		width: auto;
 		min-height: 0;
 		padding: 0;
-
 		background-color: transparent;
 		backdrop-filter: none;
 		-webkit-backdrop-filter: none;
-
 		visibility: visible;
 		opacity: 1;
 		pointer-events: auto;
-
 		transition: none;
-
 		&.is-open {
 			visibility: visible;
 			opacity: 1;
@@ -823,30 +1334,19 @@ svg {
 			font-size: 0.78rem;
 		}
 	}
+	.conversion-panel {
+		&__box {
+			padding: 2.5em 3em;
+		}
 
-	.hero {
-		&__actions {
-			flex-direction: row;
-			align-items: center;
-			gap: 2.5em;
+		&__button {
+			width: 50%;
 		}
 	}
 
 	.services {
 		&__grid {
 			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	.wordpress {
-		&__box {
-			grid-template-columns: auto minmax(0, 1fr);
-			padding: 3em;
-		}
-
-		.button {
-			grid-column: 2;
-			justify-self: start;
 		}
 	}
 
@@ -872,43 +1372,112 @@ svg {
 	}
 }
 
-/////////////DESKTOP/////////////////////
+// Desktop
 
 @include mixins.desktop {
 	.hero {
-		min-height: 40em;
+		min-height: auto;
 		padding-top: 8em;
+		padding-bottom: 4em;
 
 		&__inner {
-			grid-template-columns: 0.75fr 1.25fr;
-			align-items: center;
-			gap: 4rem;
+			grid-template-columns:
+				minmax(0, 0.82fr)
+				minmax(0, 1.18fr);
+			gap: clamp(3em, 5vw, 7em);
 		}
 
-		&__image-wrapper {
-			max-width: none;
-			// transform: scale(1.8);
+		&__content {
+			padding-bottom: 2em;
+			margin-inline: 0;
+			text-align: left;
+		}
+
+		&__visual {
+			max-width: 40em;
+		}
+
+		&__actions {
+			flex-direction: row;
+			align-items: center;
+			justify-content: left;
+			gap: 2.5em;
 		}
 	}
-
 	.services {
 		&__grid {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 4.5em 3em;
+			margin-top: 4em;
+		}
+	}
+}
+
+.sales-department {
+	&__box {
+		display: grid;
+		gap: 2em;
+		align-items: center;
+		padding: 2em;
+		background-color: colors.$color-background-card;
+		border: 0.06em solid rgba(colors.$color-border, 0.6);
+		border-radius: 1em;
+	}
+
+	&__logo {
+		display: grid;
+		place-items: center;
+		width: 2em;
+		height: 2em;
+		margin-inline: auto;
+		border: 0.03em solid colors.$color-text;
+		border-radius: 50%;
+		font-family: Georgia, serif;
+		font-size: 5rem;
+		line-height: 1;
+	}
+
+	&__title {
+		margin-bottom: 2em;
+		font-size: clamp(1.5rem, 5vw, 2rem);
+	}
+
+	&__description {
+		max-width: 42em;
+		margin-bottom: 1.2em;
+		color: colors.$color-text-muted;
+		font-size: 0.8rem;
+	}
+
+	&__features {
+		display: grid;
+		gap: 0.5em;
+		color: colors.$color-text-muted;
+		font-size: 0.8rem;
+
+		li {
+			position: relative;
+			padding-left: 1.5em;
+
+			&::before {
+				content: '✓';
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: colors.$color-text-muted;
+			}
 		}
 	}
 
-	.wordpress {
+	.conversion-panel {
 		&__box {
-			grid-template-columns: 12rem minmax(0, 1fr) auto;
-			gap: 3em;
+			grid-template-columns: minmax(0, 1fr) auto;
+			gap: clamp(2em, 4vw, 4em);
+			padding: 2.5em 3em;
 		}
 
-		.wordpress__logo {
-			margin-inline: auto;
-		}
-
-		.button {
-			grid-column: auto;
+		&__button {
+			width: auto;
 			justify-self: end;
 		}
 	}
@@ -948,7 +1517,7 @@ svg {
 	}
 }
 
-// //////////////////DUŻY DESKTOP/////////////////////
+// Large desktop
 
 @include mixins.large-desktop {
 	.hero {
@@ -961,8 +1530,19 @@ svg {
 		}
 	}
 }
+@media (max-width: 63.99em) {
+	.hero {
+		&__visual {
+			margin-top: 2em;
+		}
 
-// ///////////////OGRANICZENIA ANIMACJI/////////////////
+		&__floating-card {
+			display: none;
+		}
+	}
+}
+
+// Reduced motion
 
 @media (prefers-reduced-motion: reduce) {
 	html {
@@ -972,9 +1552,14 @@ svg {
 	*,
 	*::before,
 	*::after {
-		scroll-behavior: auto !important;
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
 		transition-duration: 0.01ms !important;
+	}
+
+	.business-mockup {
+		animation: none;
+		transform: none;
 	}
 }

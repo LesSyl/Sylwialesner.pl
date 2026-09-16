@@ -10,12 +10,85 @@
 	}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.hero__content {
-		animation: fade-up 700ms ease-out both;
+@keyframes hero-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(1.5rem);
 	}
 
-	.hero__image-wrapper {
-		animation: fade-up 700ms 150ms ease-out both;
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes hero-title-in {
+	from {
+		opacity: 0;
+		transform: translateY(2rem) scale(0.98);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes hero-visual-in {
+	from {
+		opacity: 0;
+		transform: translateX(5rem) scale(0.94);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
+
+@keyframes browser-float {
+	0%,
+	100% {
+		transform: translateY(0) rotateY(-4deg) rotateX(2deg);
+	}
+
+	50% {
+		transform: translateY(-0.6rem) rotateY(-4deg) rotateX(2deg);
+	}
+}
+
+@keyframes floating-card {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-0.6rem);
+	}
+}
+
+@keyframes business-mockup-float {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotateY(-4deg)
+            rotateX(2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-0.5rem)
+            rotateY(-4deg)
+            rotateX(2deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.business-slide {
+		transition: none;
+		transform: none;
 	}
 }

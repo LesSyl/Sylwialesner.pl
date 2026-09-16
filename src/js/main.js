@@ -1,80 +1,129 @@
-'use strict';
+'use strict'
 
-const menuButton = document.querySelector('[data-menu-toggle]');
-const navigation = document.querySelector('[data-navigation]');
-const menuLabel = document.querySelector('[data-menu-label]');
-const header = document.querySelector('[data-header]');
-const navigationLinks = document.querySelectorAll('.site-nav__link');
-const currentYear = document.querySelector('[data-current-year]');
+const SELECTORS = {
+	menuButton: '[data-menu-toggle]',
+	navigation: '[data-navigation]',
+	menuLabel: '[data-menu-label]',
+	header: '[data-header]',
+	navigationLinks: '.site-nav__link',
+	currentYear: '[data-current-year]',
+	businessButton: '[data-business]',
+	businessPanel: '[data-business-panel]',
 
-const desktopBreakpoint = 768;
+}
 
-const menuIsOpen = () =>
-	menuButton?.getAttribute('aria-expanded') === 'true';
+const DESKTOP_BREAKPOINT = 768
+
+
+const menuButton = document.querySelector(SELECTORS.menuButton)
+const navigation = document.querySelector(SELECTORS.navigation)
+const menuLabel = document.querySelector(SELECTORS.menuLabel)
+const header = document.querySelector(SELECTORS.header)
+const navigationLinks = document.querySelectorAll(SELECTORS.navigationLinks)
+const currentYear = document.querySelector(SELECTORS.currentYear)
+
+const businessButtons = document.querySelectorAll(
+    SELECTORS.businessButton,
+);
+
+const businessPanels = document.querySelectorAll(
+    SELECTORS.businessPanel,
+);
+
+
+const prefersReducedMotion = window.matchMedia(
+	'(prefers-reduced-motion: reduce)',
+)
+
+const setMenuState = (isOpen, { restoreFocus = false } = {}) => {
+	if (!menuButton || !navigation) return
+
+	menuButton.setAttribute('aria-expanded', String(isOpen))
+	menuButton.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu')
+	navigation.classList.toggle('is-open', isOpen)
+	document.body.classList.toggle('menu-open', isOpen)
+
+	if (menuLabel) {
+		menuLabel.textContent = isOpen ? 'Zamknij menu' : 'Otwórz menu'
+	}
+
+	if (restoreFocus) {
+		menuButton.focus()
+	}
+}
+
+const isMenuOpen = () => menuButton?.getAttribute('aria-expanded') === 'true'
 
 const openMenu = () => {
-	if (!menuButton || !navigation) return;
+	setMenuState(true)
 
-	menuButton.setAttribute('aria-expanded', 'true');
-	navigation.classList.add('is-open');
-	document.body.classList.add('menu-open');
-
-	if (menuLabel) {
-		menuLabel.textContent = 'Zamknij menu';
+	if (!prefersReducedMotion.matches) {
+		navigationLinks[0]?.focus()
 	}
-};
+}
 
-const closeMenu = () => {
-	if (!menuButton || !navigation) return;
+const closeMenu = (restoreFocus = false) => {
+	setMenuState(false, { restoreFocus })
+}
 
-	menuButton.setAttribute('aria-expanded', 'false');
-	navigation.classList.remove('is-open');
-	document.body.classList.remove('menu-open');
-
-	if (menuLabel) {
-		menuLabel.textContent = 'Otwórz menu';
+menuButton?.addEventListener('click', () => {
+	if (isMenuOpen()) {
+		closeMenu()
+		return
 	}
-};
 
-const toggleMenu = () => {
-	if (menuIsOpen()) {
-		closeMenu();
-	} else {
-		openMenu();
+	openMenu()
+})
+
+navigationLinks.forEach(link => {
+	link.addEventListener('click', () => closeMenu())
+})
+
+document.addEventListener('keydown', event => {
+	if (event.key === 'Escape' && isMenuOpen()) {
+		closeMenu(true)
 	}
-};
+})
 
-menuButton?.addEventListener('click', toggleMenu);
-
-navigationLinks.forEach((link) => {
-	link.addEventListener('click', closeMenu);
-});
-
-document.addEventListener('keydown', (event) => {
-	if (event.key !== 'Escape' || !menuIsOpen()) return;
-
-	closeMenu();
-	menuButton?.focus();
-});
-
-window.addEventListener('resize', () => {
-	if (window.innerWidth >= desktopBreakpoint && menuIsOpen()) {
-		closeMenu();
-	}
-});
+window.addEventListener(
+	'resize',
+	() => {
+		if (window.innerWidth >= DESKTOP_BREAKPOINT && isMenuOpen()) {
+			closeMenu()
+		}
+	},
+	{ passive: true },
+)
 
 const updateHeader = () => {
-	if (!header) return;
+	header?.classList.toggle('is-scrolled', window.scrollY > 20)
+}
 
-	header.classList.toggle('is-scrolled', window.scrollY > 20);
-};
-
-window.addEventListener('scroll', updateHeader, {
-	passive: true,
-});
-
-updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true })
+updateHeader()
 
 if (currentYear) {
-	currentYear.textContent = new Date().getFullYear();
+	currentYear.textContent = new Date().getFullYear()
 }
+
+const setBusiness = (type) => {
+    businessButtons.forEach((button) => {
+        const isActive = button.dataset.business === type;
+
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+    });
+
+    businessPanels.forEach((panel) => {
+        const isActive = panel.dataset.businessPanel === type;
+
+        panel.classList.toggle('is-active', isActive);
+        panel.setAttribute('aria-hidden', String(!isActive));
+    });
+};
+
+businessButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        setBusiness(button.dataset.business);
+    });
+});

@@ -1,19 +1,31 @@
 @use './colors' as colors;
 
+@mixin mini {
+	@media (max-width: 25em) {
+		@content;
+	}
+}
+
+@mixin tablet-mini {
+	@media (min-width: 25em) {
+		@content;
+	}
+}
+
 @mixin tablet {
-	@media (min-width: 48rem) {
+	@media (min-width: 48em) {
 		@content;
 	}
 }
 
 @mixin desktop {
-	@media (min-width: 64rem) {
+	@media (min-width: 58em) {
 		@content;
 	}
 }
 
 @mixin large-desktop {
-	@media (min-width: 75rem) {
+	@media (min-width: 75em) {
 		@content;
 	}
 }
@@ -29,10 +41,6 @@
 	padding-block: 3.7em;
 
 	@include tablet {
-		padding-block: 5em;
-	}
-
-	@include desktop {
-		padding-block: 6em;
+		padding-block: 4.5em;
 	}
 }
